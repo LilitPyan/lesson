@@ -1,0 +1,23 @@
+.list_item {
+    padding-top: 70px;
+}
+.item{
+    height: 70px;
+    width: 400px;
+    background-color: white;
+}
+.icon{
+    height: 60px;
+    width: 60px;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.name {
+    font-weight: bolder;
+    margin-top: -20px;
+}
+.text{
+    height: 60px;
+    width: 60px;
+    margin-top: -40px;
+}

@@ -1,0 +1,56 @@
+.app_aside {
+    grid-area: aside;
+    background-color: #212c33;
+    height: 800px;
+    width: 230px;
+}
+.name {
+    margin-top: -25px;
+    margin-left:70px;
+}
+.app_link_container {
+    height: 30px;
+    padding-top: 15px;
+}
+.app_link_container a{
+    color: gray;
+    text-decoration: inherit;
+}
+ a:hover {
+     color: white;
+ }
+.app_aside div:hover{
+    background-color: #333f47;
+}
+.link_item {
+    padding-left: 25px;
+ }
+.dropdown {
+    display: inline-block;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color:#333f47;
+    color: white;
+}
+li:hover {
+    background-color: #e5e5e5;
+    color: white;
+}
+.button{
+    background-color:#ff3232 ;
+    padding:12px;
+    font-weight:bold;
+    color:white;
+}
+p{
+    padding-left: 110px;
+    padding-top: 7px;
+}
+.menu_item{
+    margin-left: 60px;
+    margin-top: -24px;
+
+}
