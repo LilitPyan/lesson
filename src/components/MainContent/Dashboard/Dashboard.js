@@ -5,37 +5,56 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      country: []
+      countries: [],
+      country: [],
+      name: null
     };
   }
 
-  render() {
+  componentDidMount(e) {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `https://restcountries.eu/rest/v2/all?fields=flag;name;language;currencies\n`, false);
-    xhr.send(JSON.stringify(xhr.responseText));
-    xhr.onreadystatechange = function() {
-      if (xhr.status != 200) {
-        this.setState({country: xhr.responseText})
+    let _this = this;
+    xhr.onreadystatechange = function () {
+      if (xhr.status !== 200 && xhr.readyState === 4) {
+        _this.setState({countries: JSON.parse(xhr.responseText)})
       }
     };
+    xhr.open('GET', `https://restcountries.eu/rest/v2/all`, true);
+    xhr.send();
+  }
 
+  nameChange = (e) => {
+    e.preventDefault();
+    const country = e.target.value;
+    this.setState({name: country})
+  };
+
+  render() {
+    const { country,countries, name} = this.state;
     return (
       <div className={css.dashboards_page}>
         <div>
-          <form className={css.form}>
-            <input type='text' name='country'/>
-            <button type='submit'>Find</button>
-          </form>
+          <select onChange={this.nameChange}>
+            {countries.map((item, i) => {
+              return <option key={i}>{item.name}</option>}
+              )}
+          </select>
         </div>
-        <div>
-          <img src={this.state.country.flag} alt='error'/>
-          <p>Name: <span>{this.state.country.name}</span></p>
-          <p>Language: <span>{this.state.country.language}</span></p>
-          <p>Currency: <span>{this.state.country.currencies}</span></p>
-        </div>
+      {country.map((item,i) => {
+            return (
+              <div key={i}>
+                <img src={item.flag} alt='.'/>
+                <p>Name: <span>{item.name}</span></p>
+                <p>Currency:
+                  {item.currencies.map((currency) => {
+                  return <span>{currency.code}</span>
+                })}
+                </p>
+              </div>
+            )
+          })}
       </div>
     )
   }
 }
-
 export default Dashboard;
