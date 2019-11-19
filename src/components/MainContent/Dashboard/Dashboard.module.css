@@ -1,6 +1,24 @@
 .dashboards_page{
-    background-color: green;
-    height: 100%;
-    width: 1320px;
-    margin-top: -21px;
+    margin-top: 40px;
+}
+.form input{
+    height: 50px;
+    width: 320px;
+    border-radius: 5px;
+}
+.form button{
+    margin-left:20px;
+    height: 50px;
+    width: 60px;
+    color: white;
+    background-color: #333f47;
+}
+p{
+    font-weight: bolder;
+    margin-left: -100px;
+}
+img{
+    height:80px ;
+    width: 80px;
+    margin-top: 40px;
 }
