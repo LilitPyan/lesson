@@ -1,0 +1,49 @@
+ul {
+    margin-top: -27px;
+    padding-left: 0;
+    list-style-type: none;
+    background-color:grey;
+}
+li{
+    position: relative;
+}
+li:hover {
+    background-color: #333f47;
+    color: white;
+}
+.button{
+    background-color:#ff3232 ;
+    padding:12px;
+    font-weight:bold;
+    color:white;
+}
+.aside_container_title{
+    margin-left: 60px;
+    margin-top: -24px;
+}
+.dropItem{
+    padding-left: 15px;
+    margin-top: 10px;
+}
+.aside_container_btn {
+    margin-top: -25px;
+    margin-left:70px;
+}
+.aside_container {
+    height: 30px;
+    padding-top: 15px;
+}
+.aside_container a{
+    color: gray;
+    text-decoration: inherit;
+}
+a:hover {
+    color: white;
+}
+.aside_container_link {
+    padding-left: 25px;
+}
+p{
+    padding-left: 110px;
+    padding-top: 7px;
+}

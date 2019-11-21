@@ -24,7 +24,7 @@ class App extends Component {
         <BrowserRouter>
           <div className="app_container">
             <Header/>
-            <Aside/>
+            <Aside visiable={this.props.menuButton}/>
             <div>
               <Route exact path='/' component={MainContent}/>
               <Route path='/dashboard' component={Dashboard}/>

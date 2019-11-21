@@ -21,21 +21,25 @@ class Dashboard extends React.Component {
     };
     xhr.open('GET', `https://restcountries.eu/rest/v2/all`, true);
     xhr.send();
+
   }
 
   nameChange = (e) => {
     e.preventDefault();
     const country = e.target.value;
-    this.setState({name: country})
+    this.setState(
+        {name: country},
+        () => this.setState({country: this.name}));
   };
 
   render() {
     const { country,countries, name} = this.state;
+
     return (
       <div className={css.dashboards_page}>
         <div>
           <select onChange={this.nameChange}>
-            {countries.map((item, i) => {
+            {country.map((item, i) => {
               return <option key={i}>{item.name}</option>}
               )}
           </select>

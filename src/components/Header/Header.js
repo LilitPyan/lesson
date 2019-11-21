@@ -6,28 +6,23 @@ import {FiMenu} from 'react-icons/fi';
     constructor(props) {
       super(props);
       this.state = {
-        sideBar: false,
+        visible:false
       };
     };
 
-    showMenu = (e) => {
+    menuButton = (e) => {
       e.preventDefault();
-      this.setState({sidebar: true}, () => {
-        document.addEventListener('click', this.hideMenu);
+      this.setState({
+        visible:!this.state.visible
       });
     };
 
-    hideMenu = () => {
-      this.setState({sidebar: false}, () => {
-        document.removeEventListener('click', this.hideMenu);
-      });
-    };
     render() {
       return (
         <div className={css.app_header}>
-          <span className={css.site_name}>AdminLTE</span>
+          {this.state.visible ? <span className={css.site_name}>AdminLTE</span> : null}
           <button className={css.menu_btn} >
-            <FiMenu onClick={this.showDropdownMenu}/>
+            <FiMenu onClick={this.menuButton}/>
           </button>
         </div>
       )

@@ -1,112 +1,65 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 import {FaChartPie, FaGalacticRepublic} from 'react-icons/fa';
-import {IoIosArrowBack, IoIosArrowDown, IoIosCopy, IoIosKeypad, IoMdDesktop,} from "react-icons/io";
+import {IoIosCopy, IoIosKeypad, IoMdDesktop} from "react-icons/io";
+import DropDownItem from "./DropDownItem/DropDownItem";
 
 import css from './Aside.module.css'
 
-class Aside extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      displayMenu: false,
-    };
-  };
+class Aside extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {menuVisibility:false};
+    }
+    menuButton(){
+        this.setState({
+            menuVisibility: !this.state.menuVisibility
+        })
+    }
 
-  showDropdownMenu = (e) => {
-    e.preventDefault();
-    this.setState({displayMenu: true}, () => {
-      document.addEventListener('click', this.hideDropdownMenu);
-    });
-  };
+    render() {
 
-  hideDropdownMenu = () => {
-    this.setState({displayMenu: false}, () => {
-      document.removeEventListener('click', this.hideDropdownMenu);
-    });
-  };
+        return (
+        <nav className={css.app_aside}>
+            <DropDownItem
+                icon={<FaGalacticRepublic/>}
+                title={'Dashboard'}
+                link={'/dashboard'}
+                li_1={'a'}
+                li_2={'b'}
+            />
+            <DropDownItem
+                icon={<IoIosCopy/>}
+                title={'Layout Options'}
+                link={'/layout_options'}
+                li_1={'c'}
+                li_2={'d'}
+            />
+            <DropDownItem
+                icon={<IoIosKeypad/>}
+                title={'Widgets'}
+                link={'/widgets'}
+                li_1={'e'}
+                li_2={'f'}
+            />
+            <DropDownItem
+                icon={<FaChartPie/>}
+                title={'Charts'}
+                link={'/charts'}
+                li_1={'g'}
+                li_2={'h'}
+            />
+            <DropDownItem
+                icon={<IoMdDesktop/>}
+                title={'UI Elements'}
+                link={'/ui_elements'}
+                li_1={'i'}
+                li_2={'k'}
+            />
+        </nav>
 
-  render() {
-    return (
-      <nav className={css.app_aside}>
-        <div className={css.app_link_container}>
-          <NavLink to="/dashboard" className={css.link_item}>
-            <FaGalacticRepublic/>
-            <div className={css.menu_item}>Dashboard</div>
-            <p className={css.name}>
-              {this.state.displayMenu ? <IoIosArrowBack/> : <IoIosArrowDown onClick={this.showDropdownMenu}/>}
-            </p>
-          </NavLink>
-          {this.state.displayMenu ? (
-            <ul>
-              <li>Dashboard v1</li>
-              <li>Dashboard v2</li>
-            </ul>
-          ) : null}
-        </div>
-        <div className={css.app_link_container}>
-          <NavLink to="/layout_options" className={css.link_item}>
-            <IoIosCopy/>
-            <div className={css.menu_item}> Layout Options</div>
-            <p className={css.name}>
-              {this.state.displayMenu ? <IoIosArrowBack/> : <IoIosArrowDown onClick={this.showDropdownMenu}/>}
-            </p>
-          </NavLink>
-          {this.state.displayMenu ? (
-            <ul>
-              <li>v1</li>
-              <li>v2</li>
-            </ul>
-          ) : null}
-        </div>
-        <div className={css.app_link_container}>
-          <NavLink to="/widgets" className={css.link_item}>
-            <IoIosKeypad/>
-            <div className={css.menu_item}> Widgets</div>
-            <p className={css.name}>
-              {this.state.displayMenu ? <IoIosArrowBack/> : <IoIosArrowDown onClick={this.showDropdownMenu}/>}
-            </p>
-          </NavLink>
-          {this.state.displayMenu ? (
-            <ul>
-              <li>v1</li>
-              <li>v2</li>
-            </ul>
-          ) : null}
-        </div>
-        <div className={css.app_link_container}>
-          <NavLink to="/charts" className={css.link_item}>
-            <FaChartPie/>
-            <div className={css.menu_item}>Charts</div>
-            <p className={css.name}>
-              {this.state.displayMenu ? <IoIosArrowBack/> : <IoIosArrowDown onClick={this.showDropdownMenu}/>}
-            </p>
-          </NavLink>
-          {this.state.displayMenu ? (
-            <ul>
-              <li>v1</li>
-              <li>v2</li>
-            </ul>
-          ) : null}
-        </div>
-        <div className={css.app_link_container}>
-          <NavLink to="/ui_elements" className={css.link_item}>
-            <IoMdDesktop/>
-            <div className={css.menu_item}>UI Elements</div>
-            <p className={css.name}>
-              {this.state.displayMenu ? <IoIosArrowBack/> : <IoIosArrowDown onClick={this.showDropdownMenu}/>}
-            </p>
-          </NavLink>
-          {this.state.displayMenu ? (
-            <ul>
-              <li>v1</li>
-              <li>v2</li>
-            </ul>
-          ) : null}
-        </div>
-      </nav>
-    )
-  }
+        )
+    }
+
 }
 
 export default Aside;
