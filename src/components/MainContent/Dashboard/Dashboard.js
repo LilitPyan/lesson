@@ -13,23 +13,27 @@ class Dashboard extends React.Component {
 
   componentDidMount(e) {
     const xhr = new XMLHttpRequest();
-    let _this = this;
-    xhr.onreadystatechange = function () {
-      if (xhr.status !== 200 && xhr.readyState === 4) {
-        _this.setState({countries: JSON.parse(xhr.responseText)})
-      }
-    };
     xhr.open('GET', `https://restcountries.eu/rest/v2/all`, true);
     xhr.send();
 
+    let _this = this;
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== 4 && xhr.status !== 200) {
+        return false
+      }else {
+        _this.setState({
+          countries: JSON.parse(xhr.responseText)
+        });
+      }
+    }
   }
 
   nameChange = (e) => {
     e.preventDefault();
     const country = e.target.value;
     this.setState(
-        {name: country},
-        () => this.setState({country: this.name}));
+        { name: country },
+        () => this.setState({country: this.state.countries}));
   };
 
   render() {
@@ -39,9 +43,11 @@ class Dashboard extends React.Component {
       <div className={css.dashboards_page}>
         <div>
           <select onChange={this.nameChange}>
-            {country.map((item, i) => {
-              return <option key={i}>{item.name}</option>}
-              )}
+            {countries.map((item, i) => {
+              return (
+                <option key={i}>{item.name}</option>
+              )
+            })}
           </select>
         </div>
       {country.map((item,i) => {
@@ -50,8 +56,8 @@ class Dashboard extends React.Component {
                 <img src={item.flag} alt='.'/>
                 <p>Name: <span>{item.name}</span></p>
                 <p>Currency:
-                  {item.currencies.map((currency) => {
-                  return <span>{currency.code}</span>
+                  {item.currencies.map((currency,i) => {
+                  return <span key={i}>{currency.code}</span>
                 })}
                 </p>
               </div>
