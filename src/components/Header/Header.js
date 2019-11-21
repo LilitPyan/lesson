@@ -13,8 +13,8 @@ import {FiMenu} from 'react-icons/fi';
     menuButton = (e) => {
       e.preventDefault();
       this.setState({
-        visible:!this.state.visible
-      });
+        visible: !this.state.visible
+      })
     };
 
     render() {

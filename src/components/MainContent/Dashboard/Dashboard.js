@@ -6,8 +6,9 @@ class Dashboard extends React.Component {
     super(props);
     this.state = {
       countries: [],
-      country: [],
-      name: null
+      country: {},
+      name: null,
+      loaded: false
     };
   }
 
@@ -20,7 +21,7 @@ class Dashboard extends React.Component {
     xhr.onreadystatechange = () => {
       if (xhr.readyState !== 4 && xhr.status !== 200) {
         return false
-      }else {
+      } else {
         _this.setState({
           countries: JSON.parse(xhr.responseText)
         });
@@ -30,14 +31,17 @@ class Dashboard extends React.Component {
 
   nameChange = (e) => {
     e.preventDefault();
-    const country = e.target.value;
-    this.setState(
-        { name: country },
-        () => this.setState({country: this.state.countries}));
+    let name = e.target.value;
+    const {countries} = this.state;
+    const country = countries.find(c => c.name === name);
+    this.setState({
+      country,
+      loaded: true
+    });
   };
 
   render() {
-    const { country,countries, name} = this.state;
+    const {country, countries, loaded} = this.state;
 
     return (
       <div className={css.dashboards_page}>
@@ -50,21 +54,24 @@ class Dashboard extends React.Component {
             })}
           </select>
         </div>
-      {country.map((item,i) => {
-            return (
-              <div key={i}>
-                <img src={item.flag} alt='.'/>
-                <p>Name: <span>{item.name}</span></p>
-                <p>Currency:
-                  {item.currencies.map((currency,i) => {
-                  return <span key={i}>{currency.code}</span>
-                })}
-                </p>
-              </div>
-            )
-          })}
+        {loaded &&
+        <div>
+          <img src={country.flag} alt='flag'/>
+          <p> Name:
+            <span>
+              {country.name}
+            </span>
+          </p>
+          <p> Currency:
+            {country.currencies.map((currency, i) => {
+              return <span key={i}>{currency.code}</span>
+            })}
+          </p>
+        </div>
+        }
       </div>
     )
   }
 }
+
 export default Dashboard;

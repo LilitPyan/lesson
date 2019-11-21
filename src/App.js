@@ -15,13 +15,14 @@ import './App.css';
 class App extends Component {
   constructor(props){
     super(props);
-  }
+  };
+
   render() {
     return (
         <BrowserRouter>
           <div className="app_container">
             <Header/>
-            <Aside visiable={this.props.menuButton}/>
+            <Aside/>
             <div>
               <Route exact path='/' component={MainContent}/>
               <Route path='/dashboard' component={Dashboard}/>
