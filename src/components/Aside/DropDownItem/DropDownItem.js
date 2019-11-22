@@ -24,7 +24,7 @@ class DropDownItem extends React.Component {
 
         return (
             <div className = {css.aside_container}>
-                <NavLink to = {this.props.link} className = {css.aside_container_link}>
+                <div className = {css.aside_container_link}>
                     {this.props.icon}
                     <div className = {css.aside_container_title}>
                         {this.props.title}
@@ -34,11 +34,15 @@ class DropDownItem extends React.Component {
                             <IoIosArrowBack onClick = {this.hideDropdownMenu} /> :
                             <IoIosArrowDown onClick = {this.showDropdownMenu} />}
                     </p>
-                </NavLink>
+                </div>
                 {displayMenu ? (
                     <ul className = {css.dropItems}>
+                        <NavLink to = {this.props.link_1} className = {css.aside_container_link}>
                         <li className = {css.dropItem}>{this.props.li_1}</li>
+                        </NavLink>
+                        <NavLink to = {this.props.link_2} className = {css.aside_container_link}>
                         <li className = {css.dropItem}>{this.props.li_2}</li>
+                        </NavLink>
                     </ul>
                 ) : null}
             </div>

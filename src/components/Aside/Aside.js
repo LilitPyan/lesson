@@ -17,9 +17,10 @@ class Aside extends React.Component{
                   <DropDownItem
                     icon={<FaGalacticRepublic/>}
                     title={'Dashboard'}
-                    link={'/dashboard'}
-                    li_1={'a'}
-                    li_2={'b'}
+                    link_1={'/rest_countries'}
+                    link_2={'/youtube_api'}
+                    li_1={'REST Countries'}
+                    li_2={'YouTube API'}
                   />
                   <DropDownItem
                     icon={<IoIosCopy/>}

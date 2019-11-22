@@ -1,0 +1,28 @@
+.search_container{
+    width: 600px;
+    height: 250px;
+    background-color: white;
+    border-style: groove;
+    border-radius: 5px;
+    margin: 5px auto;
+}
+.search_area{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.select{
+    background: transparent;
+    width: 150px;
+    font-size: 16px;
+    border: 1px solid #CCC;
+    height: 34px;
+}
+.search_result {
+    margin-left: 250px;
+    display: block;
+}
+.flag{
+    height: 110px;
+    width: 150px;
+    margin-top: -30px;
+}

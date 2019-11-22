@@ -1,18 +1,17 @@
 import React from 'react';
-import css from './Dashboard.module.css'
 
-class Dashboard extends React.Component {
+class Alpha2CodeSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       countries: [],
       country: {},
-      name: null,
+      alpha2Code: null,
       loaded: false
     };
   }
 
-  componentDidMount(e) {
+  componentDidMount() {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', `https://restcountries.eu/rest/v2/all`, true);
     xhr.send();
@@ -29,11 +28,11 @@ class Dashboard extends React.Component {
     }
   }
 
-  nameChange = (e) => {
+  languageChange = (e) => {
     e.preventDefault();
-    let name = e.target.value;
+    let alpha2Code = e.target.value;
     const {countries} = this.state;
-    const country = countries.find(c => c.name === name);
+    const country = countries.find(c => c.alpha2Code === alpha2Code);
     this.setState({
       country,
       loaded: true
@@ -42,36 +41,28 @@ class Dashboard extends React.Component {
 
   render() {
     const {country, countries, loaded} = this.state;
-
     return (
-      <div className={css.dashboards_page}>
+      <div>
         <div>
-          <select onChange={this.nameChange}>
+          <select onChange={this.languageChange}>
             {countries.map((item, i) => {
               return (
-                <option key={i}>{item.name}</option>
+                <option key={i}>{item.alpha2Code}</option>
               )
             })}
           </select>
         </div>
+
         {loaded &&
-        <div>
-          <img src={country.flag} alt='flag'/>
-          <p> Name:
-            <span>
-              {country.name}
-            </span>
-          </p>
-          <p> Currency:
-            {country.currencies.map((currency, i) => {
-              return <span key={i}>{currency.code}</span>
-            })}
-          </p>
-        </div>
+          <div>
+            <p> Country:{country.name}</p>
+            <p> Capital: {country.capital}</p>
+            <p>Population: {country.population}</p>
+          </div>
         }
       </div>
     )
   }
 }
 
-export default Dashboard;
+export default Alpha2CodeSearch;
