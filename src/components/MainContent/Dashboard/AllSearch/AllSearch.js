@@ -58,12 +58,12 @@ class AllSearch extends React.Component {
       loaded &&
       <div className={css.search_result}>
         <img src={country.flag} alt='flag' className={css.flag}/>
-        <p> Name:
-          <span>
-              {country.name}
-            </span>
+        <p className={css.name}> Name:
+          <span className={css.county_name}>
+            {country.name}
+          </span>
         </p>
-        <p> Currency:
+        <p className={css.name}> Currency:
           {country.currencies.map((currency, i) => {
             return <span key={i}>{currency.code}</span>
           })}

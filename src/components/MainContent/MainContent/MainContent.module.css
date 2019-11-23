@@ -1,5 +1,6 @@
 .main_container {
     margin-top: 40px;
+    min-height: 800px;
 }
 .form input{
     height: 50px;

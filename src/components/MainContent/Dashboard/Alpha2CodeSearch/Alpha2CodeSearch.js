@@ -1,4 +1,5 @@
 import React from 'react';
+import css from './Alpha2CodeSearch.module.css';
 
 class Alpha2CodeSearch extends React.Component {
   constructor(props) {
@@ -42,9 +43,9 @@ class Alpha2CodeSearch extends React.Component {
   render() {
     const {country, countries, loaded} = this.state;
     return (
-      <div>
-        <div>
-          <select onChange={this.languageChange}>
+      <div className={css.search_container}>
+        <div className={css.search_area}>
+          <select onChange={this.languageChange} className={css.select}>
             {countries.map((item, i) => {
               return (
                 <option key={i}>{item.alpha2Code}</option>
@@ -54,10 +55,10 @@ class Alpha2CodeSearch extends React.Component {
         </div>
 
         {loaded &&
-          <div>
-            <p> Country:{country.name}</p>
-            <p> Capital: {country.capital}</p>
-            <p>Population: {country.population}</p>
+          <div className={css.search_result}>
+            <p className={css.name}> Country:<span>{country.name}</span></p>
+            <p className={css.name}> Capital:<span>{country.capital}</span></p>
+            <p className={css.name}>Population:<span>{country.population}</span></p>
           </div>
         }
       </div>
