@@ -11,12 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
   monospace;
 }
-
 .app_container {
-  background-color: antiquewhite;
+  width: 100%;
   display: grid;
   grid-template-areas:
           'aside header header header header'
           'aside main main main main'
           'footer footer footer footer footer';
 }
+.app_router{
+  display: inline-block;
+}
+

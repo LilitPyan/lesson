@@ -19,7 +19,7 @@ const App = () => {
           <div className="app_container">
             <Header/>
             <Aside/>
-            <div>
+            <div className='app_router'>
               <Route exact path='/' component={MainContent}/>
               <Route path='/rest_countries' component={RESTCountries}/>
               <Route path='/youtube_api' component={YoutubeAPI}/>

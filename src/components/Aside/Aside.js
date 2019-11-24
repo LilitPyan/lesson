@@ -76,7 +76,7 @@ class Aside extends React.Component {
                 <FiMenu onClick={this.menuButton}/>
               </button>
             </div>
-              <IconMenu icon={<FaGalacticRepublic/>}  link_1={'/rest_countries'}/>
+              <IconMenu icon={<FaGalacticRepublic/>}/>
               <IconMenu icon={<IoIosCopy/>}/>
               <IconMenu icon={<IoIosKeypad/>}/>
               <IconMenu icon={<FaChartPie/>}/>

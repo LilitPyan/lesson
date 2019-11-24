@@ -7,12 +7,12 @@ const RESTCountries = () => {
     return (
       <div className={css.page}>
         <span className={css.page_name}>REST Countries</span>
-        <p>Below are described the REST endpoints available that you can use to search for countries using https://restcountries.eu/rest/v2/all link.</p>
+        <p className={css.p}>Below are described the REST endpoints available that you can use to search for countries using https://restcountries.eu/rest/v2/all link.</p>
        <hr/>
-        <p>Example 1: Search by the all information:</p>
+        <p className={css.p}>Example 1: Search by the all information:</p>
         <AllSearch/>
         <hr/>
-        <p>Example 2: Search by country aplha2Code:</p>
+        <p className={css.p}>Example 2: Search by country aplha2Code:</p>
         <Alpha2CodeSearch/>
       </div>
     )

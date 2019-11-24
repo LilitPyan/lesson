@@ -1,10 +1,12 @@
 .search_container{
     width: 600px;
     height: 250px;
-    background-color: white;
+    background-color: lightsteelblue;
     border-style: groove;
     border-radius: 5px;
-    margin: 5px auto;
+    display: inline-block;
+    position: relative;
+    margin-left: 70px;
 }
 .search_area{
     padding-top: 20px;
@@ -13,7 +15,7 @@
 .select{
     width: 150px;
     font-size: 16px;
-    border: 1px solid #CCC;
+    border: 1px solid lightslategrey;
     height: 34px;
 }
 .search_result {
@@ -23,10 +25,11 @@
     margin-left: 200px;
     display: block;
     border-style: groove;
+    background-color: white;
 }
 .name {
     font-weight: bolder;
-    margin-left: -110px;
+    margin-left: 40px;
     margin-top: 15px;
 }
 .name span{

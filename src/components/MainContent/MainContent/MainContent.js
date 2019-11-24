@@ -8,8 +8,8 @@ class MainContent extends React.Component {
     this.state = {
       messages: [],
       newMessage: {
-        text:'',
-        key:''
+        text: '',
+        id: ''
       }
     };
   }
@@ -18,37 +18,52 @@ class MainContent extends React.Component {
     this.setState({
       newMessage: {
         text: e.target.value,
-        key: Date.now()
+        id: Date.now()
       }
     })
   };
 
   addMessage = (e) => {
     e.preventDefault();
+
     const item = this.state.newMessage;
     this.setState({
-      messages: [item,...this.state.messages],
-      newMessage:{
-        text:'',
-        key:''
+      messages: [item, ...this.state.messages],
+      newMessage: {
+        text: '',
+        id: ''
       }
     });
+  };
+
+  deleteMessage = (id) => {
+    const filteredMessages = this.state.messages.filter(item =>
+      item.id !== id
+    );
+    this.setState({
+      messages: filteredMessages
+    })
   };
 
   render() {
     return (
       <div className={css.main_container}>
+        <p className={css.title}>
+          Adding posts and deleting if necessary
+        </p>
         <form onSubmit={this.addMessage} className={css.form}>
           <input type='text'
                  name='message'
                  value={this.state.newMessage.text}
                  onChange={this.onChange}/>
           <button type='submit'>
-            Add
+            <p className={css.plus}>
+              +
+            </p>
           </button>
         </form>
-         <div>
-           <Message messages={this.state.messages}></Message>
+        <div className={css.message}>
+          <Message messages={this.state.messages} deleteMessage={this.deleteMessage}/>
         </div>
       </div>
     )

@@ -1,7 +1,7 @@
 .app_aside {
     grid-area: aside;
     background-color: #212c33;
-    width: 200px;
+    width: 190px;
 }
 .icon_aside{
     background-color: #212c33;
@@ -24,7 +24,7 @@
     background-color: inherit;
     border-style: inherit;
     margin-top: 15px;
-   padding-left: 15px;
+    padding-left: 15px;
 }
 button {
     outline: none;
