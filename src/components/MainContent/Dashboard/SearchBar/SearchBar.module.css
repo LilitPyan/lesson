@@ -1,9 +1,8 @@
 .search_item {
-   background-color: aliceblue;
     height: 55px;
     width: 400px;
-    margin: 0;
-    padding:0;
+    margin-left: 50px;
+    margin-top: 5px;
 }
 .search_item form{
     padding-top: 6px;

@@ -1,28 +1,23 @@
 import React from 'react';
 import css from './SearchBar.module.css'
 
-const SearchBar = (videos) => {
+const SearchBar = ({videos}) => {
+  const {videos}=this.props;
+  videos = YouTube.Search.list('id,snippet', {q: 'dogs', maxResults: 25});
 
-  function handleChange(videos){
+    for(let i in videos.items) {
+      let item = videos.items[i];
+      Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
+    }
 
-  }
 
-  function handleSubmit(e){
-    e.preventDefault();
-  }
-
-    return (
+  return (
       <div className={css.search_item}>
-        <form onSubmit={handleSubmit}>
-          <input
-            placeholder='Search video'
-            type='text'
-            name='search'
-            onChange={handleChange}
-          />
+        <form >
+          <input placeholder='Search video' type='text'/>
         </form>
       </div>
     )
-}
+};
 
 export default SearchBar;

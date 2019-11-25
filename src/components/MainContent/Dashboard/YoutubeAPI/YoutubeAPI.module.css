@@ -1,0 +1,22 @@
+.youtube_page{
+    display: inline-block;
+    height: 800px;
+    width: 1160px;
+    margin: 5px;
+}
+.page_title{
+    margin-left: 100px;
+    margin-top: 5px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.page_container{
+    background-color: beige;
+    border-style: groove;
+    border-radius: 4px;
+    height: 380px;
+    width: 500px;
+    display: inline-block;
+    margin-left: 100px;
+    margin-top: 10px;
+}

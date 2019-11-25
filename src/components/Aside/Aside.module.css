@@ -2,6 +2,7 @@
     grid-area: aside;
     background-color: #212c33;
     width: 190px;
+    min-height: 800px;
 }
 .icon_aside{
     background-color: #212c33;
