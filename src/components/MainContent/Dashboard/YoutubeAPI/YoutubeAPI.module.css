@@ -44,7 +44,7 @@
     position: fixed;
     height: 36px;
     border-style: groove;
-    border-radius: 0 5px 5px 0;
+    border-radius:5px;
 }
 .form_btn:hover{
     background-color: gray;

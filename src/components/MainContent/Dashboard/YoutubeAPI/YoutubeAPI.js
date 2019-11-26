@@ -8,7 +8,7 @@ class YoutubeAPI extends React.Component{
      this.state = {
         videos: [],
         videoItem:{},
-        title: null,
+        title: '',
         isLoading: false
      }
   }
@@ -37,16 +37,18 @@ class YoutubeAPI extends React.Component{
   }
 
   handleClick = (title) => {
-     const video = this.state.videos.find( title => title == title);
+     const video = this.state.videos.find( item => item.title === title);
+     console.log(video)
      this.setState({
-         isLoading: true
+         isLoading: true,
+         videoItem: video
      })
   }
 
   render(){
-    const {videos, video, isLoading} = this.state;
-    console.log(this.state.videos.items)
-    console.log(this.state.title)
+    const {videos, videoItem, isLoading,video , title} = this.state;
+    console.log(this.state.title);
+    console.log(this.state.videos.items);
 
     return (
       <div className={css.youtube_page}>
@@ -56,12 +58,12 @@ class YoutubeAPI extends React.Component{
         <div className={css.page_container}>
         <div className={css.search_item}>
            <form>
-              <input placeholder='Search video' type='text' onChange={this.handleChange}/>
+              <input placeholder='Search video' name='video-search' value={this.state.title} type='text' onChange={this.handleChange}/>
               <button onClick={this.handleClick} className={css.form_btn}>
                   <FaSearch className={css.form_icon}/>
               </button>
               <div className={css.video_item}>
-                 {isLoading && <div>{video}</div>}
+                    {this.state.title}
               </div>
            </form>
            </div>
