@@ -9,8 +9,7 @@ class YoutubeAPI extends React.Component {
     this.state = {
       videos: [],
       defVideos: [],
-      title: '',
-      isLoading: false
+      title: ''
     }
   }
 
@@ -35,7 +34,7 @@ class YoutubeAPI extends React.Component {
 
   getInfo(name) {
     const key = 'AIzaSyB3T1F5jvq304v5Ye4vHG07xz6rppUfzG0';
-    const result = 4;
+    const result = 1;
     let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${result}&key=${key}&q=${name}`;
 
     fetch(url)
@@ -47,7 +46,7 @@ class YoutubeAPI extends React.Component {
       })
       .then((result) => {
         const videos = result.items.map(obj => "https://www.youtube.com/embed/" + obj.id.videoId);
-        this.setState({videos, isLoading: true});
+        this.setState({videos});
       });
   }
 
