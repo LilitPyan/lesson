@@ -14,15 +14,15 @@
     background-color: beige;
     border-style: groove;
     border-radius: 4px;
-    height: 380px;
-    width: 500px;
+    height: 740px;
+    width: 700px;
     display: inline-block;
     margin-left: 100px;
     margin-top: 15px;
 }
 .search_item {
     height: 55px;
-    width: 400px;
+    width: 450px;
     margin-left: 30px;
     margin-top: 5px;
     display: inline-block;
@@ -40,8 +40,8 @@
     outline: none;
 }
 .form_btn{
-    margin-right:-18px;
-    position: fixed;
+    margin-left: 10px;
+    position: absolute;
     height: 36px;
     border-style: groove;
     border-radius:5px;
@@ -61,7 +61,22 @@
     margin-top: 15px;
     height:290px;
     background-color: white;
-    width: 350px;
+    width: 344px;
     border-style: groove;
     border-radius: 5px;
+}
+.search_video_item{
+    background-color: white;
+    height: 660px;
+    width: 275px;
+    margin-left: 370px;
+    margin-top: -295px;
+    border-style: groove;
+    border-radius: 5px;
+    display: inline-block;
+}
+.vItem{
+    height: 240px;
+    width: 270px;
+    margin-bottom: -70px;
 }

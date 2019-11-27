@@ -36,38 +36,42 @@ class Aside extends React.Component {
             <DropDownItem
               icon={<FaGalacticRepublic/>}
               title={'Dashboard'}
-              link_1={'/rest_countries'}
-              link_2={'/youtube_api'}
-              li_1={'REST Countries'}
-              li_2={'YouTube API'}
+              firstLink={'/rest_countries'}
+              secondLink={'/youtube_api'}
+              firstLi={'REST Countries'}
+              secondLi={'YouTube API'}
             />
             <DropDownItem
               icon={<IoIosCopy/>}
               title={'Layout Options'}
-              link={'/layout_options'}
-              li_1={'c'}
-              li_2={'d'}
+              firstLink={'/c_link'}
+              secondLink={'/d_link'}
+              firstLi={'c'}
+              secondLi={'d'}
             />
             <DropDownItem
               icon={<IoIosKeypad/>}
               title={'Widgets'}
-              link={'/widgets'}
-              li_1={'e'}
-              li_2={'f'}
+              firstLink={'/widgets'}
+              secondLink={'/d_link'}
+              firstLi={'e'}
+              secondLi={'f'}
             />
             <DropDownItem
               icon={<FaChartPie/>}
               title={'Charts'}
-              link={'/charts'}
-              li_1={'g'}
-              li_2={'h'}
+              firstLink={'/charts'}
+              secondLink={'/d_link'}
+              firstLi={'g'}
+              secondLi={'h'}
             />
             <DropDownItem
               icon={<IoMdDesktop/>}
               title={'UI Elements'}
-              link={'/ui_elements'}
-              li_1={'i'}
-              li_2={'k'}
+              firstLink={'/ui_elements'}
+              secondLink={'/d_link'}
+              firstLi={'i'}
+              secondLi={'k'}
             />
           </nav> :
           <nav className={css.icon_aside}>

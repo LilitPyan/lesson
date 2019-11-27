@@ -34,8 +34,8 @@ class DropDownItem extends React.Component {
             </p>
             <div className={css.aside_container_btn}>
               {displayMenu ?
-                <IoIosArrowBack onClick = {this.hideDropdownMenu} /> :
-                <IoIosArrowDown onClick = {this.showDropdownMenu} />
+                <IoIosArrowBack onClick={this.hideDropdownMenu}/> :
+                <IoIosArrowDown onClick={this.showDropdownMenu}/>
               }
             </div>
           </div>
@@ -43,16 +43,16 @@ class DropDownItem extends React.Component {
         {displayMenu ? (
           <ul className={css.dropItems}>
             <div className={css.ul_li}>
-              <NavLink to={this.props.link_1} className={css.li_link}>
+              <NavLink to={this.props.firstLink} className={css.li_link}>
                 <li>
-                  {this.props.li_1}
+                  {this.props.firstLi}
                 </li>
               </NavLink>
             </div>
             <div className={css.ul_li}>
-              <NavLink to={this.props.link_2} className={css.li_link}>
+              <NavLink to={this.props.secondLink} className={css.li_link}>
                 <li>
-                  {this.props.li_2}
+                  {this.props.secondLi}
                 </li>
               </NavLink>
             </div>
